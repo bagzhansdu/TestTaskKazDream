@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Информация об уроке</title>
+</head>
+<body>
+		<h4>{{lesson.title}}</h4>
+		{% if lesson.teacher %}
+		<h5>{{lesson.teacher.first_name}} {{lesson.teacher.last_name}} </h5>
+		{% else %}
+		<h5>Этому уроку еще не присвоен учитель</h5>
+		{% endif %}
+	
+			
+		<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Имя</th>
+			      <th scope="col">Фамилия</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+		{% for student in students %}
+			
+			    <tr>
+			      <th scope="row">{{ forloop.counter }}</th>
+			      <td>{{student.first_name}}</td>
+			      <td>{{student.last_name}}</td>
+			      
+			    </tr>
+			 
+		{% endfor %}
+		
+			  </tbody>
+			</table>
+
+</body>
+</html>
